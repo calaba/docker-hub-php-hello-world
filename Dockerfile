@@ -1,11 +1,11 @@
-# A basic apache server with PHP. To use either add or bind mount content under /var/www
+FROM nginx:alpine
 
-FROM bitnami/apache:latest
+RUN rm /etc/nginx/conf.d/default.conf
 
-RUN apt-get update && apt-get install -y php5 libapache2-mod-php5 php5-mysql php5-cli && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN rm /etc/nginx/conf.d/examplessl.conf
 
-ENV APACHE_HTTP_PORT_NUMBER=8080
-ENV APACHE_HTTP_PORT_NUMBER=$PORT
-ENV APACHE_HTTPS_PORT_NUMBER=8443
+COPY conf /etc/nginx
 
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+COPY content /usr/share/nginx/html
+
+EXPOSE 80
