@@ -8,6 +8,6 @@ COPY conf /etc/nginx
 
 COPY content /usr/share/nginx/html
 
-EXPOSE PORT 80
+ENV PORT 80
 
 EXPOSE 80
