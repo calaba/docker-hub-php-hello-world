@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-RUN apt-get install -y bash
+#RUN apt-get install -y bash
 RUN rm /etc/nginx/conf.d/default.conf
 RUN rm -v /etc/nginx/nginx.conf
 COPY /conf/nginx.conf /etc/nginx/nginx.conf
