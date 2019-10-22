@@ -8,6 +8,6 @@ COPY conf /etc/nginx/sites-enabled/
 
 COPY content /usr/share/nginx/html
 
-ENV PORT 80
+#ENV PORT 80
 
 EXPOSE 80
